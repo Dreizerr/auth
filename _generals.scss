@@ -1,0 +1,11 @@
+@import "_variables";
+
+:root {
+  --bg-color: #333;
+}
+
+body {
+  font-family: "Montserrat";
+  color: white;
+  background-color: var(--bg-color);
+}
