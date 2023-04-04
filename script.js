@@ -23,8 +23,22 @@ function submitHandler(event) {
     submitButton.disabled = true;
     input.value = "";
 
-    questionCreate(question).then(() => {
-      input.disabled = false;
-    });
+    questionCreate(question)
+      .then((response) => {
+        question.id = response.name;
+        input.disabled = false;
+        return question;
+      })
+      .then(addToLocalStorage);
   }
+}
+
+function addToLocalStorage(question) {
+  let questionsArray = getFromLocalStorage() || [];
+  questionsArray.push(question);
+  localStorage.setItem("questions", JSON.stringify(questionsArray));
+}
+
+function getFromLocalStorage() {
+  return JSON.parse(localStorage.getItem("questions"));
 }
