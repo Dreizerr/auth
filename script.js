@@ -1,9 +1,10 @@
 import { isValid } from "./isValid.js";
-import { questionCreate } from "./questions(1).js";
+import { Question } from "./questions(1).js";
 
 const form = document.querySelector(".block-form");
 const input = form.querySelector(".input");
 const submitButton = form.querySelector(".submit");
+const blockQuestions = document.querySelector(".block-questions");
 
 form.addEventListener("submit", submitHandler);
 input.addEventListener("input", () => {
@@ -14,16 +15,14 @@ function submitHandler(event) {
   event.preventDefault();
 
   if (isValid(input.value)) {
-    const question = {
-      text: input.value.trim(),
-      date: new Date().toJSON(),
-    };
+    const question = new Question(input.value.trim(), new Date().toJSON());
 
     input.disabled = true;
     submitButton.disabled = true;
     input.value = "";
 
-    questionCreate(question)
+    question
+      .fetchPost()
       .then((response) => {
         question.id = response.name;
         input.disabled = false;
