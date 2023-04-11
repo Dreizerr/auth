@@ -50,3 +50,13 @@
     filter: brightness(60%);
   }
 }
+
+.questions {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.question {
+  font-size: 18px;
+}

@@ -167,4 +167,14 @@ body {
 .submit:disabled:hover {
   background-color: transparent;
   color: white;
+}
+
+.questions {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.question {
+  font-size: 18px;
 }/*# sourceMappingURL=styles.css.map */
