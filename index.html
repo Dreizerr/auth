@@ -8,18 +8,27 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:regular,500,600,700,800,900" rel="stylesheet" />
     <title>auth</title>
   </head>
-  <body>
+  <body id="body">
+    <div class="body-overlay"></div>
+    <button class="button sign">Войти</button>
+    <div class="popup">
+      <header class="popup__header">
+        <h4 class="popup__title title">Авторизируйтесь</h4>
+        <button class="popup__close">&times;</button>
+      </header>
+    </div>
     <div class="container">
       <form class="block-form">
         <h4 class="title">Задайте вопрос</h4>
         <input placeholder="Ваш вопрос" class="input" type="text" />
-        <button class="submit" type="submit" disabled>Отправить вопрос</button>
+        <button class="submit-button button" type="submit" disabled>Отправить вопрос</button>
       </form>
       <div class="block-questions">
         <h4 class="title">Ваши вопросы</h4>
         <div class="questions"></div>
       </div>
     </div>
+
     <script src="script.js" type="module"></script>
   </body>
 </html>
