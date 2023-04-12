@@ -14,7 +14,6 @@ input.addEventListener("input", () => {
   submitButton.disabled = !isValid(input.value);
 });
 
-console.log(submitButton);
 window.addEventListener("load", RenderQuestions);
 
 function submitHandler(event) {
@@ -69,10 +68,7 @@ const popupCloseButton = document.querySelector(".popup__close");
 
 overlay.onclick = overlayClose;
 
-popupCloseButton.onclick = overlayClose;
-
 sign.onclick = () => {
   body.style.overflow = "hidden";
   overlay.classList.add("visible");
-  popup.classList.add("visible");
 };

@@ -9,14 +9,20 @@
     <title>auth</title>
   </head>
   <body id="body">
-    <div class="body-overlay"></div>
-    <button class="button sign">Войти</button>
-    <div class="popup">
-      <header class="popup__header">
-        <h4 class="popup__title title">Авторизируйтесь</h4>
-        <button class="popup__close">&times;</button>
-      </header>
+    <div class="body-overlay">
+      <div class="popup">
+        <header class="popup__header">
+          <h4 class="popup__title title">Авторизируйтесь</h4>
+          <button class="popup__close">&times;</button>
+        </header>
+        <form class="popup__form">
+          <input class="popup__input" placeholder="Введите логин" type="text" />
+          <input class="popup__input" placeholder="Введите пароль" type="password" />
+          <button class="popup__submit" type="submit">Войти</button>
+        </form>
+      </div>
     </div>
+    <button class="button sign">Войти</button>
     <div class="container">
       <form class="block-form">
         <h4 class="title">Задайте вопрос</h4>
