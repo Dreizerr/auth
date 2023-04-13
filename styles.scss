@@ -127,7 +127,7 @@
   margin-top: 55px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 40px;
 }
 
 .popup__input {
@@ -146,6 +146,9 @@
   &:hover {
     background-color: #3b3b3b;
   }
+  &:disabled {
+    background: #4e4e4eb9;
+  }
 }
 
 @keyframes popup {
@@ -163,4 +166,8 @@
   z-index: 500;
   @include adaptive-value("bottom", 50, 25, 1);
   @include adaptive-value("right", 150, 25, 1);
+}
+
+.margin-authorized {
+  margin-top: 80px;
 }

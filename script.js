@@ -1,13 +1,17 @@
 import { isValid } from "./isValid.js";
-import { Question } from "./question.js";
+import { Question, addToLocalStorage, getFromLocalStorage, toHTML, RenderQuestions } from "./question.js";
 import { overlayClose } from "./popup.js";
+import { authFormHandler } from "./auth.js";
 
 const form = document.querySelector(".block-form");
 const input = form.querySelector(".input");
 const submitButton = form.querySelector(".submit-button");
-const blockQuestions = document.querySelector(".questions");
 const sign = document.querySelector(".sign");
 const body = document.getElementById("body");
+const overlay = document.querySelector(".body-overlay");
+const authForm = document.querySelector(".popup__form");
+// const popupInputs = document.querySelectorAll(".popup__input");
+
 form.addEventListener("submit", submitHandler);
 
 input.addEventListener("input", () => {
@@ -38,37 +42,11 @@ function submitHandler(event) {
   }
 }
 
-function addToLocalStorage(question) {
-  let questionsArray = getFromLocalStorage();
-  questionsArray.push(question);
-  localStorage.setItem("questions", JSON.stringify(questionsArray));
-}
-
-function getFromLocalStorage() {
-  return JSON.parse(localStorage.getItem("questions")) || [];
-}
-
-function RenderQuestions() {
-  const questions = getFromLocalStorage();
-  const html = questions.map(toHTML).join(" ");
-  blockQuestions.innerHTML = html;
-}
-
-function toHTML(question, index) {
-  return `
-  <div class="question">${index + 1}. ${question.text}</div>
-  `;
-}
-
-const overlay = document.querySelector(".body-overlay");
-
-const popup = document.querySelector(".popup");
-
-const popupCloseButton = document.querySelector(".popup__close");
-
 overlay.onclick = overlayClose;
 
 sign.onclick = () => {
   body.style.overflow = "hidden";
   overlay.classList.add("visible");
 };
+
+authForm.addEventListener("submit", authFormHandler);

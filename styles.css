@@ -57,7 +57,7 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-transition: background-color 5000s ease-in-out 0s;
   transition: background-color 5000s ease-in-out 0s;
-  -webkit-text-fill-color: #fff !important;
+  -webkit-text-fill-color: black !important;
 }
 
 input::-ms-clear {
@@ -241,7 +241,7 @@ body {
   margin-top: 55px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 40px;
 }
 
 .popup__input {
@@ -260,6 +260,9 @@ body {
 }
 .popup__submit:hover {
   background-color: #3b3b3b;
+}
+.popup__submit:disabled {
+  background: rgba(78, 78, 78, 0.7254901961);
 }
 
 @keyframes popup {
@@ -285,4 +288,8 @@ body {
   .sign {
     right: calc(25px + 125 * ((100vw - 320px)) / 780);
   }
+}
+
+.margin-authorized {
+  margin-top: 80px;
 }/*# sourceMappingURL=styles.css.map */
